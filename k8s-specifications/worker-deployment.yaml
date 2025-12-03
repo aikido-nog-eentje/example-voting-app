@@ -14,6 +14,8 @@ spec:
       labels:
         app: worker
     spec:
+      securityContext:
+        runAsNonRoot: true
       containers:
       - image: dockersamples/examplevotingapp_worker
         name: worker
