@@ -14,6 +14,8 @@ spec:
       labels:
         app: result
     spec:
+      securityContext:
+        runAsNonRoot: true
       containers:
       - image: dockersamples/examplevotingapp_result
         name: result
