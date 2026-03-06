@@ -2,9 +2,12 @@ var express = require('express'),
     async = require('async'),
     { Pool } = require('pg'),
     cookieParser = require('cookie-parser'),
+    helmet = require('helmet'),
     app = express(),
     server = require('http').Server(app),
     io = require('socket.io')(server);
+
+app.use(helmet());
 
 var port = process.env.PORT || 4000;
 
