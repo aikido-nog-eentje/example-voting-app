@@ -2,6 +2,7 @@ var express = require('express'),
     async = require('async'),
     { Pool } = require('pg'),
     cookieParser = require('cookie-parser'),
+    helmet = require('helmet'),
     app = express(),
     server = require('http').Server(app),
     io = require('socket.io')(server);
@@ -63,6 +64,7 @@ function collectVotesFromResult(result) {
   return votes;
 }
 
+app.use(helmet());
 app.use(cookieParser());
 app.use(express.urlencoded());
 app.use(express.static(__dirname + '/views'));
